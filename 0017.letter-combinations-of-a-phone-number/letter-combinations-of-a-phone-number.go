@@ -1,7 +1,7 @@
 package problem0017
 
 func letterCombinations(digits string) []string {
-	if digits == "" {
+	if len(digits) == 0 {
 		return nil
 	}
 	m := map[byte][]string{
@@ -14,14 +14,12 @@ func letterCombinations(digits string) []string {
 		'8': {"t", "u", "v"},
 		'9': {"w", "x", "y", "z"},
 	}
-	//dummy ret
 	ret := []string{""}
-	for i, d := range digits {
-		//temp variable
+	for _, d := range digits {
 		var temp []string
 		for _, r := range ret {
-			for k, _ := range m[digits[i]] {
-				temp = append(temp, r+m[byte(d)][k])
+			for _, l := range m[byte(d)] {
+				temp = append(temp, r+l)
 			}
 		}
 		ret = temp
