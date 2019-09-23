@@ -7,8 +7,8 @@ type TreeNode = tree.TreeNode
 func levelOrder(root *TreeNode) [][]int {
 	var ret [][]int
 
-	var dfs func(*TreeNode, int)
-	dfs = func(root *TreeNode, level int) {
+	var bfs func(*TreeNode, int)
+	bfs = func(root *TreeNode, level int) {
 		if root == nil {
 			return
 		}
@@ -17,11 +17,11 @@ func levelOrder(root *TreeNode) [][]int {
 		}
 		ret[level] = append(ret[level], root.Val)
 
-		dfs(root.Left, level+1)
-		dfs(root.Right, level+1)
+		bfs(root.Left, level+1)
+		bfs(root.Right, level+1)
 	}
 
-	dfs(root, 0)
+	bfs(root, 0)
 
 	return ret
 }
