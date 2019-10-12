@@ -2,12 +2,14 @@ package problem0102
 
 import "leetcode-go/pkg/tree"
 
-type TreeNode = tree.TreeNode
+type TreeNode = tree.Node
 
 func levelOrder(root *TreeNode) [][]int {
+
 	var ret [][]int
 
 	var bfs func(*TreeNode, int)
+
 	bfs = func(root *TreeNode, level int) {
 		if root == nil {
 			return

@@ -2,7 +2,7 @@ package problem104
 
 import "leetcode-go/pkg/tree"
 
-type TreeNode = tree.TreeNode
+type TreeNode = tree.Node
 
 func maxDepth(root *TreeNode) int {
 	if root == nil {

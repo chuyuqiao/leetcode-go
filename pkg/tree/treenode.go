@@ -1,7 +1,8 @@
 package tree
 
-type TreeNode struct {
+//Node 树数据结构
+type Node struct {
 	Val   int
-	Left  *TreeNode
-	Right *TreeNode
+	Left  *Node
+	Right *Node
 }
