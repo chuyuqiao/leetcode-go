@@ -2,31 +2,27 @@ package probleam0003
 
 import (
 	"github.com/stretchr/testify/assert"
+	"leetcode-go/pkg/test"
 	"testing"
 )
 
-type TC struct {
-	input    string
-	expected int
-}
-
 func Test_lengthOfLongestSubstring(t *testing.T) {
-	tcs := []TC{
+	tcs := []test.TC{
 		{
-			input:    "abcabcbb",
-			expected: 3,
+			Input:    "abcabcbb",
+			Expected: 3,
 		},
 		{
-			input:    "bbbbb",
-			expected: 1,
+			Input:    "bbbbb",
+			Expected: 1,
 		},
 		{
-			input:    "pwwkew",
-			expected: 3,
+			Input:    "pwwkew",
+			Expected: 3,
 		},
 	}
 
 	for _, tc := range tcs {
-		assert.Equal(t, tc.expected, lengthOfLongestSubstring(tc.input))
+		assert.Equal(t, tc.Expected, lengthOfLongestSubstring(tc.Input))
 	}
 }
