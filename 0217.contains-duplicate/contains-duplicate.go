@@ -1,13 +1,13 @@
 package problem0217
 
 func containsDuplicate(nums []int) bool {
-	m := make(map[int]int)
+	m := make(map[int]bool, len(nums))
 
-	for i, n := range nums {
-		if _, prs := m[n]; prs {
+	for _, n := range nums {
+		if m[n] {
 			return true
 		}
-		m[n] = i
+		m[n] = true
 	}
 
 	return false
