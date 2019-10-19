@@ -1,5 +1,6 @@
 package problem0206
 
+// 单链表数据结构
 type ListNode struct {
 	Value int
 	Next  *ListNode
