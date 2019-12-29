@@ -20,8 +20,7 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 
 	var head, node *ListNode
 	if l1.Value < l2.Value {
-		head = l1
-		node = l1
+		head, node = l1, l1
 		l1 = l1.Next
 	} else {
 		head = l2
