@@ -17,7 +17,7 @@ func threeSum(nums []int) [][]int {
 			if second > first+1 && nums[second] == nums[second-1] {
 				continue
 			}
-			if second < third && nums[second]+nums[third] > target {
+			for second < third && nums[second]+nums[third] > target {
 				third--
 			}
 			if second == third {
@@ -28,6 +28,5 @@ func threeSum(nums []int) [][]int {
 			}
 		}
 	}
-
 	return ans
 }
