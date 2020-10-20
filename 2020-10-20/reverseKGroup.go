@@ -18,26 +18,24 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 		}
 		nex := tail.Next
 
-		head, tail = myReserve(head, tail)
-
+		head, tail = myReverse(head, tail)
 		pre.Next = head
 		tail.Next = nex
 
 		pre = tail
-		head = nex
-
+		head = tail.Next
 	}
-
 	return hair.Next
 }
 
-func myReserve(head *ListNode, tail *ListNode) (*ListNode, *ListNode) {
+func myReverse(head *ListNode, tail *ListNode) (*ListNode, *ListNode) {
 	pre := tail.Next
+	p := head
 	for pre != tail {
-		tmp := head.Next
-		head.Next = pre
-		pre = head
-		head = tmp
+		nex := p.Next
+		p.Next = pre
+		pre = p
+		p = nex
 	}
 	return tail, head
 }

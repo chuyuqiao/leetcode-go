@@ -1,8 +1,8 @@
 package _020_10_20
 
 func numberOfPatterns(m int, n int) int {
-	used := [9]bool{}
 	res := 0
+	used := [9]bool{}
 	for k := m; k <= n; k++ {
 		res += calcPatterns(-1, k, used)
 		for i := 0; i < 9; i++ {
@@ -18,31 +18,30 @@ func calcPatterns(last int, k int, used [9]bool) int {
 	}
 	sum := 0
 	for i := 0; i < 9; i++ {
-		if isValid(i, last, used) {
+		if isValid(last, i, used) {
 			used[i] = true
 			sum += calcPatterns(i, k-1, used)
 			used[i] = false
 		}
 	}
 	return sum
-
 }
 
-func isValid(i int, last int, used [9]bool) bool {
+func isValid(last int, i int, used [9]bool) bool {
 	if used[i] {
 		return false
 	}
 	if last == -1 {
 		return true
 	}
-	if (i+last)%2 == 1 {
+	if (last+i)%2 == 1 {
 		return true
 	}
-	mid := (i + last) / 2
+	mid := (last + i) / 2
 	if mid == 4 {
-		return used[4]
+		return used[mid]
 	}
-	if i%3 != last%3 && i/3 != last/3 {
+	if last%3 != i%3 && last/3 != i/3 {
 		return true
 	}
 	return used[mid]
