@@ -13,39 +13,37 @@ func numberOfPatterns(m int, n int) int {
 }
 
 func calcPatterns(last int, k int, used [9]bool) int {
+	if k == 0 {
+		return 1
+	}
 	sum := 0
 	for i := 0; i < 9; i++ {
-		if isValid(last, i, used) {
+		if isValid(i, last, used) {
 			used[i] = true
 			sum += calcPatterns(i, k-1, used)
 			used[i] = false
 		}
 	}
 	return sum
+
 }
 
-func isValid(last int, i int, used [9]bool) bool {
-	//1.被使用
+func isValid(i int, last int, used [9]bool) bool {
 	if used[i] {
 		return false
 	}
-	//2.首次
 	if last == -1 {
 		return true
 	}
-	//3.同行同列相邻，象棋马
-	if (last+i)%2 == 1 {
+	if (i+last)%2 == 1 {
 		return true
 	}
-	//4.中间
-	mid := (last + i) / 2
+	mid := (i + last) / 2
 	if mid == 4 {
-		return used[mid]
+		return used[4]
 	}
-	//5.对角线
-	if last/3 != i/3 && last%3 != i%3 {
+	if i%3 != last%3 && i/3 != last/3 {
 		return true
 	}
-	//6.同行同列不相邻
 	return used[mid]
 }
