@@ -1,4 +1,4 @@
-package _020_10_12
+package dp
 
 func climbStairs(n int) int {
 	if n == 1 {
