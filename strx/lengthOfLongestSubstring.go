@@ -1,4 +1,4 @@
-package _020_10_20
+package strx
 
 func lengthOfLongestSubstring(s string) int {
 	m := map[byte]int{}

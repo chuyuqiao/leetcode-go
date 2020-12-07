@@ -1,4 +1,4 @@
-package _020_10_20
+package btree
 
 type TreeNode struct {
 	Val   int
@@ -7,16 +7,16 @@ type TreeNode struct {
 }
 
 func zigzagLevelOrder(root *TreeNode) [][]int {
-	levelOrder := [][]int{}
+	var levelOrder [][]int
 	if root == nil {
 		return levelOrder
 	}
-	queue := []*TreeNode{}
+	var queue []*TreeNode
 	queue = append(queue, root)
 	count := 0
 	for len(queue) > 0 {
 		count++
-		level := []int{}
+		var level []int
 		size := len(queue)
 		for i := 0; i < size; i++ {
 			node := queue[0]
@@ -30,8 +30,9 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 			}
 		}
 		if count%2 == 0 {
-			for i := 0; i < len(level)/2; i++ {
-				level[i], level[len(level)-1-i] = level[len(level)-1-i], level[i]
+			n := len(level)
+			for i := 0; i < n/2; i++ {
+				level[i], level[n-1-i] = level[n-1-i], level[i]
 			}
 		}
 		levelOrder = append(levelOrder, level)
