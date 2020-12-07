@@ -72,7 +72,7 @@ func initDLinkedNode(key, value int) *DLinkedNode {
 
 func Constructor(capacity int) LRUCache {
 	l := LRUCache{
-		capacity: 0,
+		capacity: capacity,
 		cache:    map[int]*DLinkedNode{},
 		head:     initDLinkedNode(0, 0),
 		tail:     initDLinkedNode(0, 0),
