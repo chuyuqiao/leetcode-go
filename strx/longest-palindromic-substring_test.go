@@ -1,4 +1,4 @@
-package problem0005
+package strx
 
 import (
 	"testing"
